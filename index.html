@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Suzan</title>
+
+  <link href="Images/Sv.jpg" rel="icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header">
+    <div class="container-fluid">
+      <a href="index.html" class="logo">
+        <h1 class="sitename" style="margin:0;">Suzan</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-social-links">
+         <a href="https://x.com/suzan_subedi0_0" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.facebook.com/Suzn07" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/suzn0_0" target="_blank"><i class="fa-brands fa-instagram"></i></i></a>
+        <a href="https://www.youtube.com/@Suzan695" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section id="hero" class="hero">
+      <div class="hero-layer" id="designer-layer">
+        <img src="Images/Designer.jpg" alt="Designer View">
+      </div>
+
+      <div class="hero-layer layer-coder">
+        <img src="Images/Coder.jpg" alt="Coder View">
+      </div>
+
+      <div class="split-wrapper" id="split-trigger">
+        <div class="split-zone left-side">
+          <div class="content-box text-start" data-aos="fade-right">
+            <h2 class="fw-bold">&lt;Designer&gt;</h2>
+            <p class="lead">Product designer specializing in UI design.</p>
+          </div>
+        </div>
+
+        <div class="split-zone right-side">
+          <div class="content-box text-end" data-aos="fade-left">
+            <h2 class="fw-bold">&lt;Coder&gt;</h2>
+            <p class="lead">Front end developer writing elegant code.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="copyright">
+        <p>© <span>Copyright</span> <strong class="sitename">Suzan</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="social-links">
+         <a href="https://x.com/suzan_subedi0_0" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.facebook.com/Suzn07" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/suzn0_0" target="_blank"><i class="fa-brands fa-instagram"></i></i></a>
+        <a href="https://www.youtube.com/@Suzan695" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    const designerLayer = document.getElementById('designer-layer');
+const trigger = document.getElementById('split-trigger');
+const designerContent = document.querySelector('.left-side .content-box');
+const coderContent = document.querySelector('.right-side .content-box');
+
+trigger.style.cursor = "pointer";
+
+// Navigation
+trigger.addEventListener('click', () => {
+  window.location.href = "portfolio.html";
+});
+
+trigger.addEventListener('mousemove', (e) => {
+  const mouseX = (e.clientX / window.innerWidth) * 100;
+  let splitPoint = mouseX;
+
+  // Logic for the "Center Deadzone" (40% to 60%)
+  if (mouseX >= 40 && mouseX <= 60) {
+    splitPoint = 50;
+    setVisuals(0, 1, 0, 1); // Reset both sides
+  } 
+  else if (mouseX < 40) {
+    setVisuals(8, 0.3, 0, 1); // Blur Left
+  } 
+  else {
+    setVisuals(0, 1, 8, 0.3); // Blur Right
+  }
+
+  designerLayer.style.clipPath = `inset(0 ${100 - splitPoint}% 0 0)`;
+});
+
+// Helper function to keep code clean
+function setVisuals(dBlur, dOpac, cBlur, cOpac) {
+  designerContent.style.filter = `blur(${dBlur}px)`;
+  designerContent.style.opacity = dOpac;
+  coderContent.style.filter = `blur(${cBlur}px)`;
+  coderContent.style.opacity = cOpac;
+}
+
+trigger.addEventListener('mouseleave', () => {
+  designerLayer.style.clipPath = `inset(0 50% 0 0)`;
+  setVisuals(0, 1, 0, 1);
+});
+
+    
+  </script>
+</body>
+</html>
