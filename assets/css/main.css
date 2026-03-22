@@ -687,9 +687,10 @@ h6 {
 
         .b1 { background-color: #7BC5C1; height: 95%; transition-delay: 0.1s; }
         .b2 { background-color: #E6B5AC; height: 90%; transition-delay: 0.2s; }
-        .b3 { background-color: #E7B848; height: 95%; transition-delay: 0.3s; }
+        .b3 { background-color: #E7B848; height: 85%; transition-delay: 0.3s; }
         .b4 { background-color: #CDA073; height: 75%; transition-delay: 0.4s; }
-        .b5 { background-color: #CB5851; height: 40%; transition-delay: 0.5s; }
+        .b5 { background-color: #CB5851; height: 60%; transition-delay: 0.5s; }
+
 
         footer { text-align: center; padding: 40px 0; border-top: 1px solid #eee; margin-top: 50px; }
 
